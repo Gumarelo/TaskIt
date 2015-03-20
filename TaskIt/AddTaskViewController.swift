@@ -9,7 +9,14 @@
 import UIKit
 
 class AddTaskViewController: UIViewController {
+    
+    var mainVC: ViewController!
 
+    @IBOutlet weak var tareaTextField: UITextField!
+    @IBOutlet weak var subtareaTextField: UITextField!
+    @IBOutlet weak var fechaDatePicker: UIDatePicker!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,15 +28,15 @@ class AddTaskViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func cancelButtonTapped(sender: UIButton) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
-    */
+
+    @IBAction func agregarTareaButtonTapped(sender: UIButton) {
+        var tarea = TaskModel(tarea: tareaTextField.text, subtarea: subtareaTextField.text, fecha: fechaDatePicker.date)
+        mainVC.taskArray.append(tarea)
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
 }

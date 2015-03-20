@@ -9,9 +9,25 @@
 import UIKit
 
 class TaskDetailViewController: UIViewController {
+    
+    var mainVC:ViewController!
+    
+    @IBOutlet weak var tareaTextField: UITextField!
+    @IBOutlet weak var subtareaTextField: UITextField!
+    @IBOutlet weak var fechaDatePicker: UIDatePicker!
+    
+    
+    
+    var detailTaskModel: TaskModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        println(self.detailTaskModel.tarea)
+        
+        tareaTextField.text = detailTaskModel.tarea
+        subtareaTextField.text = detailTaskModel.subtarea
+        fechaDatePicker.date = detailTaskModel.fecha
 
         // Do any additional setup after loading the view.
     }
@@ -21,15 +37,16 @@ class TaskDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func cancelButtonTapped(sender: UIBarButtonItem) {
+        self.navigationController?.popViewControllerAnimated(true)
     }
-    */
-
+    
+    @IBAction func hechoBarButtonItemPressed(sender: UIBarButtonItem) {
+        var tarea = TaskModel(tarea: tareaTextField.text, subtarea: subtareaTextField.text, fecha: fechaDatePicker.date)
+        mainVC.taskArray[mainVC.tableView.indexPathForSelectedRow()!.row] = tarea
+        
+        
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
 }
