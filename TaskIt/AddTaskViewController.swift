@@ -33,8 +33,8 @@ class AddTaskViewController: UIViewController {
     }
 
     @IBAction func agregarTareaButtonTapped(sender: UIButton) {
-        var tarea = TaskModel(tarea: tareaTextField.text, subtarea: subtareaTextField.text, fecha: fechaDatePicker.date)
-        mainVC.taskArray.append(tarea)
+        var tarea = TaskModel(tarea: tareaTextField.text, subtarea: subtareaTextField.text, fecha: fechaDatePicker.date, completado: false)
+        mainVC.arrayBase[0].append(tarea)
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }

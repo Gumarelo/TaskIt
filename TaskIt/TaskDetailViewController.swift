@@ -42,8 +42,8 @@ class TaskDetailViewController: UIViewController {
     }
     
     @IBAction func hechoBarButtonItemPressed(sender: UIBarButtonItem) {
-        var tarea = TaskModel(tarea: tareaTextField.text, subtarea: subtareaTextField.text, fecha: fechaDatePicker.date)
-        mainVC.taskArray[mainVC.tableView.indexPathForSelectedRow()!.row] = tarea
+        var tarea = TaskModel(tarea: tareaTextField.text, subtarea: subtareaTextField.text, fecha: fechaDatePicker.date, completado: false)
+        mainVC.arrayBase[0][mainVC.tableView.indexPathForSelectedRow()!.row] = tarea
         
         
         self.navigationController?.popViewControllerAnimated(true)

@@ -90,6 +90,7 @@
 				27E901021AB23D04005C69C0 /* AppDelegate.swift */,
 				27E901041AB23D04005C69C0 /* ViewController.swift */,
 				279634811AB8E927007CE3C2 /* TaskDetailViewController.swift */,
+				279634851ABBB2FB007CE3C2 /* AddTaskViewController.swift */,
 				2796344D1AB3771E007CE3C2 /* TaskCell.swift */,
 				2796347D1AB8E626007CE3C2 /* TaskModel.swift */,
 				279634831AB8F60C007CE3C2 /* Date.swift */,
@@ -97,7 +98,6 @@
 				27E901091AB23D04005C69C0 /* Images.xcassets */,
 				27E9010B1AB23D04005C69C0 /* LaunchScreen.xib */,
 				27E901001AB23D04005C69C0 /* Supporting Files */,
-				279634851ABBB2FB007CE3C2 /* AddTaskViewController.swift */,
 			);
 			path = TaskIt;
 			sourceTree = "<group>";

@@ -12,5 +12,6 @@ struct TaskModel {
     var tarea: String
     var subtarea: String
     var fecha: NSDate
+    var completado: Bool
     
 }
