@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		2796344E1AB3771E007CE3C2 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2796344D1AB3771E007CE3C2 /* TaskCell.swift */; };
-		2796347E1AB8E626007CE3C2 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2796347D1AB8E626007CE3C2 /* TaskModel.swift */; };
 		279634821AB8E927007CE3C2 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279634811AB8E927007CE3C2 /* TaskDetailViewController.swift */; };
 		279634841AB8F60C007CE3C2 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279634831AB8F60C007CE3C2 /* Date.swift */; };
 		279634861ABBB2FB007CE3C2 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279634851ABBB2FB007CE3C2 /* AddTaskViewController.swift */; };
+		27965D461ABDAFC700477177 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27965D451ABDAFC700477177 /* CoreData.framework */; };
+		27965D491ABDB75200477177 /* TaskModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27965D471ABDB75200477177 /* TaskModel.xcdatamodeld */; };
+		27965D4B1ABDB8E600477177 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27965D4A1ABDB8E600477177 /* TaskModel.swift */; };
 		27E901031AB23D04005C69C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E901021AB23D04005C69C0 /* AppDelegate.swift */; };
 		27E901051AB23D04005C69C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E901041AB23D04005C69C0 /* ViewController.swift */; };
 		27E901081AB23D04005C69C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E901061AB23D04005C69C0 /* Main.storyboard */; };
@@ -32,10 +34,12 @@
 
 /* Begin PBXFileReference section */
 		2796344D1AB3771E007CE3C2 /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
-		2796347D1AB8E626007CE3C2 /* TaskModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		279634811AB8E927007CE3C2 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		279634831AB8F60C007CE3C2 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		279634851ABBB2FB007CE3C2 /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		27965D451ABDAFC700477177 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		27965D481ABDB75200477177 /* TaskModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaskModel.xcdatamodel; sourceTree = "<group>"; };
+		27965D4A1ABDB8E600477177 /* TaskModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		27E900FD1AB23D04005C69C0 /* TaskIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27E901011AB23D04005C69C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27E901021AB23D04005C69C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27965D461ABDAFC700477177 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,7 +97,8 @@
 				279634811AB8E927007CE3C2 /* TaskDetailViewController.swift */,
 				279634851ABBB2FB007CE3C2 /* AddTaskViewController.swift */,
 				2796344D1AB3771E007CE3C2 /* TaskCell.swift */,
-				2796347D1AB8E626007CE3C2 /* TaskModel.swift */,
+				27965D471ABDB75200477177 /* TaskModel.xcdatamodeld */,
+				27965D4A1ABDB8E600477177 /* TaskModel.swift */,
 				279634831AB8F60C007CE3C2 /* Date.swift */,
 				27E901061AB23D04005C69C0 /* Main.storyboard */,
 				27E901091AB23D04005C69C0 /* Images.xcassets */,
@@ -105,6 +111,7 @@
 		27E901001AB23D04005C69C0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				27965D451ABDAFC700477177 /* CoreData.framework */,
 				27E901011AB23D04005C69C0 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -229,10 +236,11 @@
 			files = (
 				27E901051AB23D04005C69C0 /* ViewController.swift in Sources */,
 				279634841AB8F60C007CE3C2 /* Date.swift in Sources */,
-				2796347E1AB8E626007CE3C2 /* TaskModel.swift in Sources */,
+				27965D491ABDB75200477177 /* TaskModel.xcdatamodeld in Sources */,
 				2796344E1AB3771E007CE3C2 /* TaskCell.swift in Sources */,
 				27E901031AB23D04005C69C0 /* AppDelegate.swift in Sources */,
 				279634821AB8E927007CE3C2 /* TaskDetailViewController.swift in Sources */,
+				27965D4B1ABDB8E600477177 /* TaskModel.swift in Sources */,
 				279634861ABBB2FB007CE3C2 /* AddTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,6 +447,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		27965D471ABDB75200477177 /* TaskModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				27965D481ABDB75200477177 /* TaskModel.xcdatamodel */,
+			);
+			currentVersion = 27965D481ABDB75200477177 /* TaskModel.xcdatamodel */;
+			path = TaskModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 27E900F51AB23D04005C69C0 /* Project object */;
 }

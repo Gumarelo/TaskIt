@@ -1,17 +1,20 @@
 //
-//  File.swift
+//  TaskModel.swift
 //  TaskIt
 //
-//  Created by Jorge Casariego on 17/3/15.
+//  Created by Jorge Casariego on 21/3/15.
 //  Copyright (c) 2015 Jorge Casariego. All rights reserved.
 //
 
 import Foundation
+import CoreData
 
-struct TaskModel {
-    var tarea: String
-    var subtarea: String
-    var fecha: NSDate
-    var completado: Bool
-    
+@objc(TaskModel)
+class TaskModel: NSManagedObject {
+
+    @NSManaged var fecha: NSDate
+    @NSManaged var completado: NSNumber
+    @NSManaged var subtarea: String
+    @NSManaged var tarea: String
+
 }

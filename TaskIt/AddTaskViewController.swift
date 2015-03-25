@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 class AddTaskViewController: UIViewController {
     
-    var mainVC: ViewController!
+    //var mainVC: ViewController!
 
     @IBOutlet weak var tareaTextField: UITextField!
     @IBOutlet weak var subtareaTextField: UITextField!
@@ -33,8 +34,39 @@ class AddTaskViewController: UIViewController {
     }
 
     @IBAction func agregarTareaButtonTapped(sender: UIButton) {
-        var tarea = TaskModel(tarea: tareaTextField.text, subtarea: subtareaTextField.text, fecha: fechaDatePicker.date, completado: false)
-        mainVC.arrayBase[0].append(tarea)
+        
+        //Sin CoreData
+        /*var tarea = TaskModel(tarea: tareaTextField.text, subtarea: subtareaTextField.text, fecha: fechaDatePicker.date, completado: false)
+        mainVC.arrayBase[0].append(tarea)*/
+        
+        //Con CoreData
+        let appDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+        
+        let managedObjectContext = appDelegate.managedObjectContext
+        
+        let entityDescription = NSEntityDescription.entityForName("TaskModel", inManagedObjectContext: managedObjectContext!)
+        
+        let tarea = TaskModel(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext!)
+        
+        tarea.tarea = tareaTextField.text
+        tarea.subtarea = subtareaTextField.text
+        tarea.fecha = fechaDatePicker.date
+        tarea.completado = false
+        
+        appDelegate.saveContext()
+        
+        //NSFetchRequest returns a request to the core data object, it's how we get data from it.
+        //This's just as a test to make sure everything is working fine. 
+        //We're simply saying that if there are any results, print it to the debugger so we can see them.
+        var request = NSFetchRequest(entityName: "TaskModel")
+        var error: NSError? = nil
+        
+        var resultado: NSArray = managedObjectContext!.executeFetchRequest(request, error: &error)!
+        
+        for res in resultado{
+            println(res)
+        }
+        
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }

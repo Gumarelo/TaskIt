@@ -10,7 +10,7 @@ import UIKit
 
 class TaskDetailViewController: UIViewController {
     
-    var mainVC:ViewController!
+    //var mainVC:ViewController!
     
     @IBOutlet weak var tareaTextField: UITextField!
     @IBOutlet weak var subtareaTextField: UITextField!
@@ -42,9 +42,22 @@ class TaskDetailViewController: UIViewController {
     }
     
     @IBAction func hechoBarButtonItemPressed(sender: UIBarButtonItem) {
+        
+        /*
+        //YA no usamos estas lineas de codigo luego de usar CoreDate
         var tarea = TaskModel(tarea: tareaTextField.text, subtarea: subtareaTextField.text, fecha: fechaDatePicker.date, completado: false)
         mainVC.arrayBase[0][mainVC.tableView.indexPathForSelectedRow()!.row] = tarea
+        */
         
+        let appDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+        
+        detailTaskModel.tarea = tareaTextField.text
+        detailTaskModel.subtarea = subtareaTextField.text
+        detailTaskModel.fecha = fechaDatePicker.date
+        
+        detailTaskModel.completado = detailTaskModel.completado
+        
+        appDelegate.saveContext()
         
         self.navigationController?.popViewControllerAnimated(true)
     }
