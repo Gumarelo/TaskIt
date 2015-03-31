@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6214" systemVersion="14A314h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6207"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,31 +10,85 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2015 Jorge Casariego. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
-                    <rect key="frame" x="20" y="439" width="441" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TaskIt" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
-                    <rect key="frame" x="20" y="140" width="441" height="43"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="SplashScreen" translatesAutoresizingMaskIntoConstraints="NO" id="4TQ-Kb-dRr">
+                    <rect key="frame" x="-16" y="-8" width="496" height="488"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="496" id="R6f-LA-Hlr"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="488" id="Wut-LH-UbQ"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="496" id="sue-vH-hJ0"/>
+                        <constraint firstAttribute="height" constant="488" id="yRa-UT-CkM"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Wut-LH-UbQ"/>
+                            <exclude reference="sue-vH-hJ0"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <mask key="constraints">
+                            <include reference="Wut-LH-UbQ"/>
+                            <include reference="sue-vH-hJ0"/>
+                        </mask>
+                    </variation>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="bottom" multiplier="1/3" constant="1" id="5cJ-9S-tgC"/>
-                <constraint firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="Koa-jz-hwk"/>
-                <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
-                <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
-                <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="fvb-Df-36g"/>
+                <constraint firstItem="4TQ-Kb-dRr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="-8" id="2Md-VP-dtD"/>
+                <constraint firstItem="4TQ-Kb-dRr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="-8" id="2T1-xn-lkT"/>
+                <constraint firstAttribute="bottom" secondItem="4TQ-Kb-dRr" secondAttribute="bottom" id="C6n-P1-I6e"/>
+                <constraint firstAttribute="bottom" secondItem="4TQ-Kb-dRr" secondAttribute="bottom" id="L37-AE-w0E"/>
+                <constraint firstItem="4TQ-Kb-dRr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="-16" id="LvD-gS-YlH"/>
+                <constraint firstItem="4TQ-Kb-dRr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="-16" id="Urn-0U-c2a"/>
+                <constraint firstAttribute="trailing" secondItem="4TQ-Kb-dRr" secondAttribute="trailing" id="Xwe-j7-WHK"/>
+                <constraint firstAttribute="centerY" secondItem="4TQ-Kb-dRr" secondAttribute="centerY" constant="4" id="bDe-iB-DWb"/>
+                <constraint firstAttribute="trailing" secondItem="4TQ-Kb-dRr" secondAttribute="trailing" id="bQB-bB-V7A"/>
+                <constraint firstAttribute="centerY" secondItem="4TQ-Kb-dRr" secondAttribute="centerY" constant="4" id="kA9-1b-LEb"/>
+                <constraint firstAttribute="centerX" secondItem="4TQ-Kb-dRr" secondAttribute="centerX" constant="8" id="o1c-hR-LxR"/>
+                <constraint firstAttribute="centerX" secondItem="4TQ-Kb-dRr" secondAttribute="centerX" constant="8" id="uOk-2X-FBA"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="2Md-VP-dtD"/>
+                    <exclude reference="2T1-xn-lkT"/>
+                    <exclude reference="C6n-P1-I6e"/>
+                    <exclude reference="L37-AE-w0E"/>
+                    <exclude reference="LvD-gS-YlH"/>
+                    <exclude reference="Urn-0U-c2a"/>
+                    <exclude reference="Xwe-j7-WHK"/>
+                    <exclude reference="bDe-iB-DWb"/>
+                    <exclude reference="bQB-bB-V7A"/>
+                    <exclude reference="kA9-1b-LEb"/>
+                    <exclude reference="o1c-hR-LxR"/>
+                    <exclude reference="uOk-2X-FBA"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="constraints">
+                    <include reference="2T1-xn-lkT"/>
+                    <include reference="C6n-P1-I6e"/>
+                    <include reference="LvD-gS-YlH"/>
+                    <include reference="bDe-iB-DWb"/>
+                    <include reference="bQB-bB-V7A"/>
+                    <include reference="o1c-hR-LxR"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=regular">
+                <mask key="constraints">
+                    <include reference="2Md-VP-dtD"/>
+                    <include reference="L37-AE-w0E"/>
+                    <include reference="Urn-0U-c2a"/>
+                    <include reference="Xwe-j7-WHK"/>
+                    <include reference="kA9-1b-LEb"/>
+                    <include reference="uOk-2X-FBA"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
+    <resources>
+        <image name="SplashScreen" width="1536" height="2048"/>
+    </resources>
 </document>

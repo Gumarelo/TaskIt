@@ -9,6 +9,11 @@
 import UIKit
 import CoreData
 
+protocol AddTaskViewControllerDelegate{
+    func addTask(mensaje:String)
+    func cancelar(mensaje:String)
+}
+
 class AddTaskViewController: UIViewController {
     
     //var mainVC: ViewController!
@@ -17,9 +22,12 @@ class AddTaskViewController: UIViewController {
     @IBOutlet weak var subtareaTextField: UITextField!
     @IBOutlet weak var fechaDatePicker: UIDatePicker!
     
+    var delegate:AddTaskViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
 
         // Do any additional setup after loading the view.
     }
@@ -31,6 +39,7 @@ class AddTaskViewController: UIViewController {
     
     @IBAction func cancelButtonTapped(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)
+        delegate?.addTask("La tarea no fue agregada!")
     }
 
     @IBAction func agregarTareaButtonTapped(sender: UIButton) {
@@ -48,10 +57,25 @@ class AddTaskViewController: UIViewController {
         
         let tarea = TaskModel(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext!)
         
-        tarea.tarea = tareaTextField.text
+        if NSUserDefaults.standardUserDefaults().boolForKey(kShouldCapitalizeTaskKey) == true{
+            tarea.tarea = tareaTextField.text.capitalizedString
+        }
+        else {
+            tarea.tarea = tareaTextField.text
+        }
+        
+        if NSUserDefaults.standardUserDefaults().boolForKey(kShouldcompleteNewTodo) == true {
+            tarea.completado = true
+        }
+        else {
+            tarea.completado = false
+        }
+        
+        
+        
         tarea.subtarea = subtareaTextField.text
         tarea.fecha = fechaDatePicker.date
-        tarea.completado = false
+        
         
         appDelegate.saveContext()
         
@@ -67,8 +91,8 @@ class AddTaskViewController: UIViewController {
             println(res)
         }
         
-        
         self.dismissViewControllerAnimated(true, completion: nil)
+        delegate?.addTask("Tarea agregada")
     }
 
 }

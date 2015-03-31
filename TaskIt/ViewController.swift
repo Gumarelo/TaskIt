@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 //To populate our table we are going to use NSFetchedResultsViewController. NSFetchedResultsControllers are super optimized for synchronizing a views with CoreData.
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, TaskDetailViewControllerDelegate, AddTaskViewControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -23,11 +23,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
         
         fetchResultsController = getFetchResultsController()
         fetchResultsController.delegate = self
         fetchResultsController.performFetch(nil)
+        
+        
+        
+        
+        
         
         /*
         //Cuando no usamos CoreData hicimos de esta manera
@@ -87,12 +92,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let thisTask = fetchResultsController.objectAtIndexPath(indexPath!) as TaskModel
             detailVC.detailTaskModel = thisTask
             
-            //detailVC.mainVC = self
+            detailVC.delegate = self
+            
+            
         }
         else if segue.identifier == "showAddTask" {
             let addTaskVC: AddTaskViewController = segue.destinationViewController as AddTaskViewController
             
             //addTaskVC.mainVC = self
+            addTaskVC.delegate = self
         }
     }
     
@@ -127,6 +135,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.dateLabel.text = Date.toString(date: thisTask.fecha)
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.backgroundColor = UIColor.clearColor()
     }
     
     //UITableViewDelegate
@@ -195,6 +207,29 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
+    //TaskDetailViewControllerDelegate
+    func taskDetailEdited() {
+        showAlert()
+        
+    }
+    
+    //AddTaskViewControllerDelegate
+    func addTask(mensaje: String) {
+        showAlert(mensaje: mensaje)
+    }
+    
+    func cancelar(mensaje: String) {
+        showAlert(mensaje: mensaje)
+    }
+    
+    func showAlert(mensaje:String = "Felicidades!!") {
+        var alerta = UIAlertController(title: "Cambios Hechos", message: mensaje, preferredStyle: UIAlertControllerStyle.Alert)
+        alerta.addAction(UIAlertAction(title: "Ok!", style: UIAlertActionStyle.Default, handler: nil))
+        
+        self.presentViewController(alerta, animated: true, completion: nil)
+        
+        
+    }
     
 
 }

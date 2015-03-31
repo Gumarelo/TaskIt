@@ -9,6 +9,11 @@
 import UIKit
 import CoreData
 
+let kShouldCapitalizeTaskKey = "shouldCapitalizeTask"
+let kShouldcompleteNewTodo = "shouldCompleteNewTodo"
+let kLoadedOnce = "loadOnce"    //El valor por default es false
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -17,6 +22,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        if NSUserDefaults.standardUserDefaults().boolForKey(kLoadedOnce) == false {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: kLoadedOnce)
+            
+            NSUserDefaults.standardUserDefaults().setBool(false, forKey: kShouldCapitalizeTaskKey)
+            NSUserDefaults.standardUserDefaults().setBool(false, forKey: kShouldcompleteNewTodo)
+            
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+        
+        
         return true
     }
 

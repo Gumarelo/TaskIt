@@ -8,6 +8,11 @@
 
 import UIKit
 
+//Creamo un protocolo
+@objc protocol TaskDetailViewControllerDelegate {
+    optional func taskDetailEdited()
+}
+
 class TaskDetailViewController: UIViewController {
     
     //var mainVC:ViewController!
@@ -16,12 +21,15 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var subtareaTextField: UITextField!
     @IBOutlet weak var fechaDatePicker: UIDatePicker!
     
-    
+    //Agregamos un propieda
+    var delegate: TaskDetailViewControllerDelegate?
     
     var detailTaskModel: TaskModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
         
         println(self.detailTaskModel.tarea)
         
@@ -60,6 +68,8 @@ class TaskDetailViewController: UIViewController {
         appDelegate.saveContext()
         
         self.navigationController?.popViewControllerAnimated(true)
+        
+        delegate?.taskDetailEdited!()
     }
     
 }
